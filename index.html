@@ -1,15 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Salary Calculator</title>
     <link rel="stylesheet" href="style.css">
     <script src="jquery.js"></script>
     <script src="client.js"></script>
 </head>
+
 <body>
-    
+    <div class="container">
+        <header>
+            <h1>Salary Calculator</h1>
+        </header>
+        <div class="add-employee">
+            <h2>Add Employee</h2>
+            <input type="text" placeholder="first name" />
+            <input type="text" placeholder="last name" />
+            <input type="number" placeholder="ID" />
+            <input type="text" placeholder="title" />
+            <input type="number" placeholder="annual salary" />
+            <button id="submit-button">submit</button>
+        </div>
+        <div class="employees">
+            <h2>Employees</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>first name</th>
+                        <th>last name</th>
+                        <th>ID</th>
+                        <th>title</th>
+                        <th>annual salary</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="employees-table-body">
+                    <tr>
+                        <td>jen</td>
+                        <td>barber</td>
+                        <td>4521</td>
+                        <td>team lead</td>
+                        <td>$80,000</td>
+                        <td><button>delete</button></td>
+                    <tr></tr>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>total monthly: $<span id="total-monthly-out">TOTAL MONTHLY OUTPUT</span></h2>
+
+        </div>
+    </div>
 </body>
+
 </html>

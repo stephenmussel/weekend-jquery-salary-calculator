@@ -1,0 +1,27 @@
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: grey;
+    color: white;
+    text-align: center;
+
+}
+
+/*from w3schools*/
+
+table, td, th {  
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 15px;
+  }
