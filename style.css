@@ -1,15 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+
+}
 .container {
     max-width: 1024px;
     margin: 0 auto;
+    border: 1px solid black;
 }
 
 header {
     background-color: grey;
     color: white;
+    padding: 20px;
     text-align: center;
-
 }
 
+.employees, .add-employee {
+    padding: 10px;
+}
 /*from w3schools*/
 
 table, td, th {  
