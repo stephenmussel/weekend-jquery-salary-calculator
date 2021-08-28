@@ -7,7 +7,7 @@ Your project description goes here...
 ## Checklist
 
 - [x] html, client.js, jquery.js, log "DOM ready"
-- [ ] building template in html (inputs / table)
+- [x] building template in html (inputs / table)
 - [ ] add some styling for the table
 - [ ] button click that logs to the console
 - [ ] assign input to variables
