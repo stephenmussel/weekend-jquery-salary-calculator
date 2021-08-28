@@ -8,7 +8,7 @@ function readyNow() {
 
     // capture click event for submit button
     $('#submit-button').on('click', addEmployee);
-    
+
 }
 
 function addEmployee() {
@@ -22,14 +22,14 @@ function addEmployee() {
     let newAnnualSalary = $('#add-annual-salary').val();
 
     // created new object
-    let newEmployee = {newFirstName, newLastName, newID, newTitle, newAnnualSalary};
+    let newEmployee = { newFirstName, newLastName, newID, newTitle, newAnnualSalary };
     console.log(`all the inputs: ${newFirstName}, ${newLastName}, ${newID}, ${newTitle}, ${newAnnualSalary}`);
-    employeeList.push(newEmployee); 
+    employeeList.push(newEmployee);
     console.table(newEmployee);
-    
+
     // newEmployee object is in the array!
     console.table(employeeList);
-    
+
     // clears inputs
     // newFirstName.val(''); !work, not a function? huh?
     $('#add-first-name').val(''); // works!
@@ -47,7 +47,7 @@ function displayEmployeeOnTable() {
     console.log(employeeList);
 
     // need to loop this and append to table
-    for(i=0; i<employeeList.length; i++) {
+    for (i = 0; i < employeeList.length; i++) {
         let newFirstName = employeeList[i].newFirstName;
         let newLastName = employeeList[i].newLastName;
         let newID = employeeList[i].newID;
@@ -57,7 +57,7 @@ function displayEmployeeOnTable() {
         console.log(newFirstName, newLastName, newID, newTitle, salaryNumber);
 
         let rowClass = '';
-    $('#employees-table-body').append(`
+        $('#employees-table-body').append(`
         <tr class="${rowClass}">
             <td>${newFirstName}</td>
             <td>${newLastName}</td>
@@ -67,7 +67,7 @@ function displayEmployeeOnTable() {
             <td><button>delete</button></td>
         </tr>`)
     }
-    
+
     /**
      * hardcoded test 1 test employee
      */
@@ -89,4 +89,17 @@ function displayEmployeeOnTable() {
     //         <td>${salaryNumber}</td>
     //         <td><button>delete</button></td>
     //     </tr>`)
+
+    calculateMonthlyCost();
 }
+
+function calculateMonthlyCost() {
+    console.log('inside calculateMonthlyCost');
+
+    //loop thru employeeList array
+    let totalMonthlyCost = 0;
+    for (let i = 0; i < employeeList.length; i++) {
+        totalMonthlyCost += Number(employeeList[i].newAnnualSalary); // converts to number
+    } // end for
+    $('#total-monthly-out').html(totalMonthlyCost / 12);
+} // end calculateMontlyCost
