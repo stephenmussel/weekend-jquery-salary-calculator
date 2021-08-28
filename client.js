@@ -13,13 +13,19 @@ function readyNow() {
 
 function addEmployee() {
     console.log('in addEmployee');
+
+    // set input values to variables
     let newFirstName = $('#add-first-name').val();
     let newLastName = $('#add-last-name').val();
+
+    // created new object
     let newEmployee = {newFirstName, newLastName};
     console.log(`first and second inputs are: 
                 ${newFirstName}, ${newLastName}`);
     console.log(newEmployee);
     employeeList.push(newEmployee); 
+
+    // newEmployee object is in the array!
     console.log(employeeList);
        
     
