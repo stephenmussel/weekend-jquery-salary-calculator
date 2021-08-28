@@ -19,6 +19,11 @@ header {
 .employees, .add-employee {
     padding: 10px;
 }
+
+.warning {
+  background-color: tomato;
+}
+
 /*from w3schools*/
 
 table, td, th {  
