@@ -14,7 +14,7 @@ Your project description goes here...
 - [ ] append to the DOM using those variables
 - [ ] global variables for monthly cost
 - [ ] append monthly cost to the DOM
-- [ ] logic for background color on the monthly costs
+- [x] logic for background color on the monthly costs
 - [ ] delete button that removes a row
 
 

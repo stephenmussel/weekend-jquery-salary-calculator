@@ -10,6 +10,14 @@ function readyNow() {
 
     // capture click event for submit button
     $('#submit-button').on('click', addEmployee);
+    $('#employees-table-body').on('click', deleteEmployee);
+}
+
+function deleteEmployee() {
+    console.log('in deleteEmployee');
+    console.log($(this).children());
+    $(this).children().removeClass();
+    
 }
 
 function addEmployee() {
@@ -54,28 +62,17 @@ function displayEmployeeOnTable() {
         let newID = employeeList[i].newID;
         let newTitle = employeeList[i].newTitle;
         let newAnnualSalary = employeeList[i].newAnnualSalary; 
-        // console.log(newFirstName, newLastName, newID, newTitle, newAnnualSalary);
-
-        totalAnnualCost += Number(employeeList[i].newAnnualSalary); // converts to number
-        // totalAnnualCost += salaryNumber;
-        totalMonthlyCost = totalAnnualCost / 12;
-        // $('#total-monthly-out').html(totalAnnualCost);
-        $('#total-monthly-out').html(totalMonthlyCost);
+        let newSalary = parseInt(employeeList[i].newAnnualSalary);
+        // console.log(newFirstName, newLastName, newID, newTitle, newSalary);
 
         let rowClass = '';
-        if (totalMonthlyCost > 20) {
-            rowClass = 'warning';
-        } else {
-            // do nothing
-        }
-        
         $('#employees-table-body').append(`
         <tr class="${rowClass}">
             <td>${newFirstName}</td>
             <td>${newLastName}</td>
             <td>${newID}</td>
             <td>${newTitle}</td>
-            <td>${parseInt(employeeList[i].newAnnualSalary)}</td>
+            <td>${newSalary}</td>
             <td><button>delete</button></td>
         </tr>`)
     }
@@ -102,32 +99,26 @@ function displayEmployeeOnTable() {
     //         <td><button>delete</button></td>
     //     </tr>`)
 
-    // calculateMonthlyCost();
+    calculateMonthlyCost();
 }
 
-// function calculateMonthlyCost() {
-//     // console.log('inside calculateMonthlyCost');
-//     // console.log('monthly start: ', totalMonthlyCost); // testing for start value
+function calculateMonthlyCost() {
+    // console.log('inside calculateMonthlyCost');
+    // console.log('monthly start: ', totalMonthlyCost); // testing for start value
 
-//     //loop thru employeeList array
-//     for (let i = 0; i < employeeList.length; i++) {
-//         totalAnnualCost += Number(employeeList[i].newAnnualSalary); // converts to number
-//     } // end for
-//     totalMonthlyCost = totalAnnualCost / 12;
-//     $('#total-monthly-out').html(totalMonthlyCost);
+    //loop thru employeeList array
+    for (let i = 0; i < employeeList.length; i++) {
+        totalAnnualCost = Number(employeeList[i].newAnnualSalary); // converts to number
+    } // end for
+    totalMonthlyCost += totalAnnualCost / 12;
+    $('#total-monthly-out').html(totalMonthlyCost);
 
-//     let rowClass = '';
-//     if (totalMonthlyCost > 20) {
-//         rowClass = 'warning';
-//     } else {
-//         // do nothing
-//     }
+    if (totalMonthlyCost > 20) {
+        $('#total-monthly-out').css({"background-color": "tomato"});
+    } else {
+        // do nothing
+    }
+   
+    console.log('monthly end: ', totalMonthlyCost); // testing for end value
 
-    // $('#employees-table-body').append(`
-    //     <tr class="${rowClass}">
-    //         <td>${parseInt(employeeList[i].newAnnualSalary)}</td>
-    //         <td><button>delete</button></td>
-    //     </tr>`)
-    // console.log('monthly end: ', totalMonthlyCost); // testing for end value
-
-// } // end calculateMonthlyCost
+} // end calculateMonthlyCost
