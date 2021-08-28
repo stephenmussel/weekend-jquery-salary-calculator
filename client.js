@@ -17,11 +17,14 @@ function addEmployee() {
     // set input values to variables
     let newFirstName = $('#add-first-name').val();
     let newLastName = $('#add-last-name').val();
+    let newID = $('#add-id').val();
+    let newTitle = $('#add-title').val();
+    let newAnnualSalary = $('#add-annual-salary').val();
 
     // created new object
-    let newEmployee = {newFirstName, newLastName};
-    console.log(`first and second inputs are: 
-                ${newFirstName}, ${newLastName}`);
+    let newEmployee = {newFirstName, newLastName, newID, newTitle, newAnnualSalary};
+    console.log(`all the inputs: 
+                ${newFirstName}, ${newLastName}, ${newID}, ${newTitle}, ${newAnnualSalary}`);
     employeeList.push(newEmployee); 
 
     // newEmployee object is in the array!
@@ -31,6 +34,9 @@ function addEmployee() {
     // newFirstName.val(''); !work, not a function? huh?
     $('#add-first-name').val(''); // works!
     $('#add-last-name').val('');
+    $('#add-id').val('');
+    $('#add-title').val('');
+    $('#add-annual-salary').val('');
 
     // call function to run it!
     addEmployeeToTable();
@@ -42,12 +48,21 @@ function addEmployeeToTable() {
     
     // setting first object property in array to a variable
     let newFirstName = employeeList[0].newFirstName;
-    console.log(newFirstName);
+    let newLastName = employeeList[0].newLastName;
+    let newID = employeeList[0].newID;
+    let newTitle = employeeList[0].newTitle;
+    let newAnnualSalary = employeeList[0].newAnnualSalary;
+    let salaryNumber = parseInt(newAnnualSalary);
+    console.log(newFirstName, newLastName, newID, newTitle, salaryNumber);
 
     let rowClass = '';
     $('#employees-table-body').append(`
         <tr class="${rowClass}">
             <td>${newFirstName}</td>
+            <td>${newLastName}</td>
+            <td>${newID}</td>
+            <td>${newTitle}</td>
+            <td>${salaryNumber}</td>
             <td><button>delete</button></td>
         </tr>`)
 }
