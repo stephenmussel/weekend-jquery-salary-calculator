@@ -1,10 +1,10 @@
-console.log('JS ready');
+// console.log('JS ready');
 let employeeList = [];
 
 $(document).ready(readyNow);
 
 function readyNow() {
-    console.log('DOM ready');
+    // console.log('DOM ready');
 
     // capture click event for submit button
     $('#submit-button').on('click', addEmployee);
@@ -27,6 +27,17 @@ function addEmployee() {
 
     // newEmployee object is in the array!
     console.log(employeeList);
-       
+
+    // clears inputs
+    // newFirstName.val(''); !work, not a function? huh?
+    $('#add-first-name').val(''); // works!
+    $('#add-last-name').val('');
+
+    // call function to run it!
+    displayEmployee();
+}
+
+function displayEmployee() {
+    console.log('in displayEmployee');
     
 }
