@@ -22,7 +22,6 @@ function addEmployee() {
     let newEmployee = {newFirstName, newLastName};
     console.log(`first and second inputs are: 
                 ${newFirstName}, ${newLastName}`);
-    console.log(newEmployee);
     employeeList.push(newEmployee); 
 
     // newEmployee object is in the array!
@@ -34,10 +33,21 @@ function addEmployee() {
     $('#add-last-name').val('');
 
     // call function to run it!
-    displayEmployee();
+    addEmployeeToTable();
 }
 
-function displayEmployee() {
-    console.log('in displayEmployee');
+function addEmployeeToTable() {
+    console.log('in addEmployeeToTable');
+    console.log(employeeList);
     
+    // setting first object property in array to a variable
+    let newFirstName = employeeList[0].newFirstName;
+    console.log(newFirstName);
+
+    let rowClass = '';
+    $('#employees-table-body').append(`
+        <tr class="${rowClass}">
+            <td>${newFirstName}</td>
+            <td><button>delete</button></td>
+        </tr>`)
 }
