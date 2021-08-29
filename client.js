@@ -50,12 +50,30 @@ function addEmployee() {
     // newEmployee object is in the array!
     console.table(employeeList);
 
+    // BUT it still pushes empty inputs into objects and arrays
+    if (newFirstName.length === 0 || newLastName === 0 || newID === 0 || newTitle === 0 || newAnnualSalary === 0) {
+        $('#add-first-name').attr('placeholder', 'FILL in first name');
+        $('#add-last-name').attr('placeholder', 'FILL in last name');
+        $('#add-id').attr('placeholder', 'FILL in ID');
+        $('#add-title').attr('placeholder', 'FILL in title');
+        $('#add-annual-salary').attr('placeholder', 'FILL in annual salary');
+        return false;
+    } else {
+        // do nothing
+    }
+
     // clears inputs
     $('#add-first-name').val('');
+    $('#add-first-name').attr('placeholder', 'first name');
     $('#add-last-name').val('');
+    $('#add-last-name').attr('placeholder', 'last name');
     $('#add-id').val('');
+    $('#add-id').attr('placeholder', 'ID');
     $('#add-title').val('');
+    $('#add-title').attr('placeholder', 'title');
     $('#add-annual-salary').val('');
+    $('#add-annual-salary').attr('placeholder', 'annual salary');
+
 
     // call function to run it!
     displayEmployeeOnTable();
@@ -143,7 +161,7 @@ function calculateMonthlyCost() {
 
     if (totalMonthlyCost > 20000) {
         // hightlights output and changes text color
-        $('#total-monthly-out').css({ "background-color": "#FA5A77", "color": "#FFFFFF" });
+        $('#total-monthly-out').css({ 'background-color': '#FA5A77', 'color': '#FFFFFF' });
     } else {
         // do nothing
     }
