@@ -8,7 +8,7 @@ Your project description goes here...
 
 - [x] html, client.js, jquery.js, log "DOM ready"
 - [x] building template in html (inputs / table)
-- [ ] add some styling for the table
+- [x] add some styling for the table
 - [x] button click that logs to the console
 - [x] assign input to variables
 - [x] append to the DOM using those variables

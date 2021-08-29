@@ -79,7 +79,7 @@ function displayEmployeeOnTable() {
         let currencyConverter = Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD',
-            minimumFractionDigits: 0
+            minimumFractionDigits: 0,
         });
 
         // console.log(newFirstName, newLastName, newID, newTitle, newSalary);
@@ -142,7 +142,8 @@ function calculateMonthlyCost() {
     $('#total-monthly-out').html(convertedTotalMonthlyCost);
 
     if (totalMonthlyCost > 20000) {
-        $('#total-monthly-out').css({ "background-color": "tomato" });
+        // hightlights output and changes text color
+        $('#total-monthly-out').css({ "background-color": "#FA5A77", "color": "#FFFFFF" });
     } else {
         // do nothing
     }
