@@ -61,9 +61,15 @@ function displayEmployeeOnTable() {
         let newLastName = employeeList[i].newLastName;
         let newID = employeeList[i].newID;
         let newTitle = employeeList[i].newTitle;
-        let newAnnualSalary = employeeList[i].newAnnualSalary; 
+        // let newAnnualSalary = employeeList[i].newAnnualSalary; 
         let newSalary = parseInt(employeeList[i].newAnnualSalary);
+        let currencyConverter = Intl.NumberFormat('en-US', {
+                                    style: 'currency', 
+                                    currency: 'USD', 
+                                    minimumFractionDigits: 0});
+        
         // console.log(newFirstName, newLastName, newID, newTitle, newSalary);
+        let newCurrency = currencyConverter.format(newSalary);
 
         let rowClass = '';
         $('#employees-table-body').append(`
@@ -72,11 +78,11 @@ function displayEmployeeOnTable() {
             <td>${newLastName}</td>
             <td>${newID}</td>
             <td>${newTitle}</td>
-            <td>${newSalary}</td>
+            <td>${newCurrency}</td>
             <td><button>delete</button></td>
         </tr>`)
     }
-
+    
     /**
      * hardcoded test 1 test employee
      */
@@ -110,7 +116,15 @@ function calculateMonthlyCost() {
         totalAnnualCost = Number(employeeList[i].newAnnualSalary); // converts to number
     } // end for
     totalMonthlyCost += totalAnnualCost / 12;
-    $('#total-monthly-out').html(totalMonthlyCost);
+    let currencyConverter = Intl.NumberFormat('en-US', {
+        style: 'currency', 
+        currency: 'USD', 
+        minimumFractionDigits: 0});
+
+    let convertedTotalMonthlyCost = currencyConverter.format(totalMonthlyCost);
+
+
+    $('#total-monthly-out').html(convertedTotalMonthlyCost);
 
     if (totalMonthlyCost > 20) {
         $('#total-monthly-out').css({"background-color": "tomato"});
@@ -121,3 +135,5 @@ function calculateMonthlyCost() {
     console.log('total monthly cost end: ', totalMonthlyCost); // testing for end value
 
 } // end calculateMonthlyCost
+
+
