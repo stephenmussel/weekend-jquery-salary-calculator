@@ -7,24 +7,22 @@ $(document).ready(readyNow);
 
 function readyNow() {
     // console.log('DOM ready');
-
     // capture click event for submit button
     $('#submit-button').on('click', addEmployee);
-    $('#employees-table-body').on('click', deleteEmployee);
-    $('#rowClass').on('click', )
+    // capture click evnet for delete button
+    $('#delete-button').on('click', deleteEmployee);
 }
 
-// will this work properly when displayEmployeeOnTable works properly !?
 function deleteEmployee() {
     console.log('in deleteEmployee');
-    console.log($(this).children());
-    let employeeRow = $(this).children();
-    employeeRow.empty();
+    console.log($(this).parent().parent());
+    let newEmployee = $(this).parent().parent();
+    newEmployee.removeClass();
 }
 
 function addEmployee() {
     console.log('in addEmployee');
-
+    console.log($(this));
     // set input values to variables
     let newFirstName = $('#add-first-name').val();
     let newLastName = $('#add-last-name').val();
@@ -68,10 +66,11 @@ function displayEmployeeOnTable() {
         // let newAnnualSalary = employeeList[i].newAnnualSalary; 
         let newSalary = parseInt(employeeList[i].newAnnualSalary);
         let currencyConverter = Intl.NumberFormat('en-US', {
-                                    style: 'currency', 
-                                    currency: 'USD', 
-                                    minimumFractionDigits: 0});
-        
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 0
+        });
+
         // console.log(newFirstName, newLastName, newID, newTitle, newSalary);
         let newCurrency = currencyConverter.format(newSalary);
 
@@ -83,10 +82,10 @@ function displayEmployeeOnTable() {
             <td>${newID}</td>
             <td>${newTitle}</td>
             <td>${newCurrency}</td>
-            <td><button>delete</button></td>
+            <td><button id="delete-button">delete</button></td>
         </tr>`)
     }
-    
+
     /**
      * hardcoded test 1 test employee
      */
@@ -120,23 +119,22 @@ function calculateMonthlyCost() {
         totalAnnualCost = Number(employeeList[i].newAnnualSalary); // converts to number
     } // end for
     totalMonthlyCost += totalAnnualCost / 12;
-    
+
     let currencyConverter = Intl.NumberFormat('en-US', {
-        style: 'currency', 
-        currency: 'USD', 
-        minimumFractionDigits: 0});
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0
+    });
 
     let convertedTotalMonthlyCost = currencyConverter.format(totalMonthlyCost);
     $('#total-monthly-out').html(convertedTotalMonthlyCost);
 
-    if (totalMonthlyCost > 20) {
-        $('#total-monthly-out').css({"background-color": "tomato"});
+    if (totalMonthlyCost > 20000) {
+        $('#total-monthly-out').css({ "background-color": "tomato" });
     } else {
         // do nothing
     }
-   
+
     console.log('total monthly cost end: ', totalMonthlyCost); // testing for end value
-
+    
 } // end calculateMonthlyCost
-
-
