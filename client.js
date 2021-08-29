@@ -13,11 +13,12 @@ function readyNow() {
     $('#employees-table-body').on('click', deleteEmployee);
 }
 
+// will this work properly when displayEmployeeOnTable works properly !?
 function deleteEmployee() {
     console.log('in deleteEmployee');
     console.log($(this).children());
-    $(this).children().removeClass();
-    
+    let employeeRow = $(this).children();
+    employeeRow.empty();
 }
 
 function addEmployee() {
@@ -32,7 +33,7 @@ function addEmployee() {
 
     // created new object
     let newEmployee = { newFirstName, newLastName, newID, newTitle, newAnnualSalary };
-    console.log(`all the inputs: ${newFirstName}, ${newLastName}, ${newID}, ${newTitle}, ${newAnnualSalary}`);
+    // console.log(`newEmployee info: ${newFirstName}, ${newLastName}, ${newID}, ${newTitle}, ${newAnnualSalary}`);
     employeeList.push(newEmployee);
     console.table(newEmployee);
 
@@ -50,7 +51,6 @@ function addEmployee() {
     // call function to run it!
     displayEmployeeOnTable();
 }
-
 function displayEmployeeOnTable() {
     // console.log('in displayEmployeeOnTable');
     // console.log(employeeList);
@@ -101,10 +101,9 @@ function displayEmployeeOnTable() {
 
     calculateMonthlyCost();
 }
-
 function calculateMonthlyCost() {
     // console.log('inside calculateMonthlyCost');
-    // console.log('monthly start: ', totalMonthlyCost); // testing for start value
+    console.log('total monthly cost start: ', totalMonthlyCost); // testing for start value
 
     //loop thru employeeList array
     for (let i = 0; i < employeeList.length; i++) {
@@ -119,6 +118,6 @@ function calculateMonthlyCost() {
         // do nothing
     }
    
-    console.log('monthly end: ', totalMonthlyCost); // testing for end value
+    console.log('total monthly cost end: ', totalMonthlyCost); // testing for end value
 
 } // end calculateMonthlyCost
