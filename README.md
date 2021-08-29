@@ -22,3 +22,8 @@ Your project description goes here...
 - [ ] update the total cost on delete of a row
 - [ ] array and objects to hold information
 - [ ] alert the user of missing fields
+
+## Screen Shot
+
+![](salary-calculator1.png)
+![](salary-calculator2.png)
