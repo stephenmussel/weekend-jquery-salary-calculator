@@ -55,6 +55,10 @@ function displayEmployeeOnTable() {
     // console.log('in displayEmployeeOnTable');
     // console.log(employeeList);
 
+    // empties previous inputs
+    let tableElement = $('#employees-table-body');
+    tableElement.empty();
+
     // need to loop this and append to table
     for (i = 0; i < employeeList.length; i++) {
         let newFirstName = employeeList[i].newFirstName;
@@ -81,7 +85,6 @@ function displayEmployeeOnTable() {
             <td>${newCurrency}</td>
             <td><button>delete</button></td>
         </tr>`)
-        newFirstName.empty();
     }
     
     /**

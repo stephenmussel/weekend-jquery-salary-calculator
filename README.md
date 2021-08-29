@@ -11,9 +11,9 @@ Your project description goes here...
 - [ ] add some styling for the table
 - [x] button click that logs to the console
 - [x] assign input to variables
-- [ ] append to the DOM using those variables
-- [ ] global variables for monthly cost
-- [ ] append monthly cost to the DOM
+- [x] append to the DOM using those variables
+- [x] global variables for monthly cost
+- [x] append monthly cost to the DOM
 - [x] logic for background color on the monthly costs
 - [ ] delete button that removes a row
 
