@@ -15,7 +15,7 @@ Your project description goes here...
 - [x] global variables for monthly cost
 - [x] append monthly cost to the DOM
 - [x] logic for background color on the monthly costs
-- [ ] delete button that removes a row
+- [x] delete button that removes a row
 
 
 ### stretch

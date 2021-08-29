@@ -8,21 +8,32 @@ $(document).ready(readyNow);
 function readyNow() {
     // console.log('DOM ready');
     // capture click event for submit button
+    // #1 this method adds to click handler you know won't be removed
     $('#submit-button').on('click', addEmployee);
     // capture click evnet for delete button
-    $('#delete-button').on('click', deleteEmployee);
+    
+    // what is this?
+    // console.log($(this));
+    // $(selector).on(event, filter, functionToCall) 
+    // if 'delete-button' clicked then call function, if something else clicked function not called
+    // #2 adding click handler to something that didn't exist (delete-button) when page loaded requires you to attach
+    // it to something that does exist (employees-table-body), then specifiy what doesn't exist yet
+    // on the page (delete-button)
+    $('#employees-table-body').on('click', '.delete-button' , deleteEmployee);
 }
 
 function deleteEmployee() {
     console.log('in deleteEmployee');
-    console.log($(this).parent().parent());
-    let newEmployee = $(this).parent().parent();
-    newEmployee.removeClass();
+    // console.log($(this));
+    // $(this).text('you clicked the button');
+    let employeeRow = $(this).parent().parent();
+    employeeRow.remove();
+    // $(this).remove();
 }
 
 function addEmployee() {
-    console.log('in addEmployee');
     console.log($(this));
+    console.log('in addEmployee');
     // set input values to variables
     let newFirstName = $('#add-first-name').val();
     let newLastName = $('#add-last-name').val();
@@ -82,8 +93,9 @@ function displayEmployeeOnTable() {
             <td>${newID}</td>
             <td>${newTitle}</td>
             <td>${newCurrency}</td>
-            <td><button id="delete-button">delete</button></td>
-        </tr>`)
+            <td><button class="delete-button">delete</button></td>
+        </tr>`);
+        
     }
 
     /**
