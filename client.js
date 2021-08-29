@@ -11,6 +11,7 @@ function readyNow() {
     // capture click event for submit button
     $('#submit-button').on('click', addEmployee);
     $('#employees-table-body').on('click', deleteEmployee);
+    $('#rowClass').on('click', )
 }
 
 // will this work properly when displayEmployeeOnTable works properly !?
@@ -41,8 +42,7 @@ function addEmployee() {
     console.table(employeeList);
 
     // clears inputs
-    // newFirstName.val(''); !work, not a function? huh?
-    $('#add-first-name').val(''); // works!
+    $('#add-first-name').val('');
     $('#add-last-name').val('');
     $('#add-id').val('');
     $('#add-title').val('');
@@ -81,6 +81,7 @@ function displayEmployeeOnTable() {
             <td>${newCurrency}</td>
             <td><button>delete</button></td>
         </tr>`)
+        newFirstName.empty();
     }
     
     /**
@@ -116,14 +117,13 @@ function calculateMonthlyCost() {
         totalAnnualCost = Number(employeeList[i].newAnnualSalary); // converts to number
     } // end for
     totalMonthlyCost += totalAnnualCost / 12;
+    
     let currencyConverter = Intl.NumberFormat('en-US', {
         style: 'currency', 
         currency: 'USD', 
         minimumFractionDigits: 0});
 
     let convertedTotalMonthlyCost = currencyConverter.format(totalMonthlyCost);
-
-
     $('#total-monthly-out').html(convertedTotalMonthlyCost);
 
     if (totalMonthlyCost > 20) {
